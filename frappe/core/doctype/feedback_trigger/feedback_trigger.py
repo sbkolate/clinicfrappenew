@@ -38,15 +38,15 @@ def trigger_feedback_request(doc, method):
 
 		return triggers
 
-	feedback_triggers = frappe.cache().get_value('feedback_triggers', _get)
-	if doc.doctype in feedback_triggers:
-		if doc.flags.in_delete:
-			frappe.enqueue('frappe.core.doctype.feedback_trigger.feedback_trigger.delete_feedback_request_and_feedback',
-				reference_doctype=doc.doctype, reference_name=doc.name, now=frappe.flags.in_test)
-		else:
-			frappe.enqueue('frappe.core.doctype.feedback_trigger.feedback_trigger.send_feedback_request',
-				trigger=feedback_triggers[doc.doctype], reference_doctype=doc.doctype,
-				reference_name=doc.name, now=frappe.flags.in_test)
+	# feedback_triggers = frappe.cache().get_value('feedback_triggers', _get)
+	# if doc.doctype in feedback_triggers:
+	# 	if doc.flags.in_delete:
+	# 		frappe.enqueue('frappe.core.doctype.feedback_trigger.feedback_trigger.delete_feedback_request_and_feedback',
+	# 			reference_doctype=doc.doctype, reference_name=doc.name, now=frappe.flags.in_test)
+	# 	else:
+	# 		frappe.enqueue('frappe.core.doctype.feedback_trigger.feedback_trigger.send_feedback_request',
+	# 			trigger=feedback_triggers[doc.doctype], reference_doctype=doc.doctype,
+	# 			reference_name=doc.name, now=frappe.flags.in_test)
 
 @frappe.whitelist()
 def send_feedback_request(reference_doctype, reference_name, trigger="Manual", details=None, is_manual=False):
