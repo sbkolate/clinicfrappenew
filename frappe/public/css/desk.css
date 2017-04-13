@@ -356,12 +356,19 @@ fieldset[disabled] .form-control {
 }
 .datepicker--time-current-hours,
 .datepicker--time-current-minutes,
-.datepicker--time-current-seconds {
+ {
   font-family: inherit;
+}
+.datepicker--time-row:last-child {
+    display: none !important;
+}
+span.datepicker--time-current-seconds.-focus- {
+    display: none !important;
 }
 .datepicker--day-name {
   color: #36414C;
 }
+
 .datepicker--cell.-current- {
   color: #5E64FF;
 }
