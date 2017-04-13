@@ -687,7 +687,7 @@ frappe.ui.form.ControlTime = frappe.ui.form.ControlData.extend({
 			language: "en",
 			timepicker: true,
 			onlyTimepicker: true,
-			timeFormat: "hh:ii:ss",
+			timeFormat: "hh:ii",
 			onSelect: function(dateObj) {
 				me.set_value(dateObj);
 			},
@@ -705,7 +705,7 @@ frappe.ui.form.ControlTime = frappe.ui.form.ControlData.extend({
 			&& ((this.last_value && this.last_value !== this.value)
 				|| (!this.datepicker.selectedDates.length))) {
 
-			this.datepicker.selectDate(moment(value, 'hh:mm:ss')._d);
+			this.datepicker.selectDate(moment(value, 'hh:mm')._d);
 		}
 	},
 });
@@ -714,7 +714,7 @@ frappe.ui.form.ControlDatetime = frappe.ui.form.ControlDate.extend({
 	set_date_options: function() {
 		this._super();
 		this.datepicker_options.timepicker = true;
-		this.datepicker_options.timeFormat = "hh:ii:ss";
+		this.datepicker_options.timeFormat = "hh:ii";
 		this.datepicker_options.onShow = function() {
 			$('.datepicker--button:visible').text(__('Now'));
 		};
