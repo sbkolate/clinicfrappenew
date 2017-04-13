@@ -239,7 +239,7 @@ class User(Document):
 
 		app_title = [t for t in frappe.get_hooks('app_title') if t != 'Frappe Framework']
 		if app_title:
-			subject = _("Welcome to {0}").format(app_title[0])
+			subject = _("Welcome to AAS")
 		else:
 			subject = _("Complete Registration")
 
